@@ -3,8 +3,15 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces", "custom/ytmusic"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "tray"],
-
+  "modules-right": [
+    "custom/waybar",
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "battery",
+    "tray"
+  ],
 
   "custom/tasks": {
     "exec": "~/.config/waybar/scripts/tasks.py",
@@ -15,26 +22,30 @@
   "clock": {
     "format": "{:%a %d %b %H:%M}"
   },
+
   "battery": {
     "format": "{capacity}% "
   },
+
   "pulseaudio": {
     "format": "{volume}% ",
-    "format-muted": " Muted"
+    "format-muted": " Muted",
+    "on-click": "pavucontrol"
   },
 
   "custom/ytmusic": {
-  "exec": "~/.config/waybar/scripts/ytmusic-live.sh",
-  "interval": 0,
-  "return-type": "text",
-  "format": "{}",
-  "tooltip": false,
-  "on-click": "~/.config/waybar/scripts/firefox-player.sh | xargs -I{} playerctl -p {} play-pause",
-  "on-scroll-down": "~/.config/waybar/scripts/firefox-player.sh | xargs -I{} playerctl -p {} previous",
-  "on-scroll-up": "~/.config/waybar/scripts/firefox-player.sh | xargs -I{} playerctl -p {} next"
-}
+    "exec": "~/.config/waybar/scripts/ytmusic-live.sh",
+    "interval": 0,
+    "return-type": "text",
+    "format": "{}",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/firefox-player.sh | xargs -I{} playerctl -p {} play-pause",
+    "on-scroll-down": "~/.config/waybar/scripts/firefox-player.sh | xargs -I{} playerctl -p {} previous",
+    "on-scroll-up": "~/.config/waybar/scripts/firefox-player.sh | xargs -I{} playerctl -p {} next"
+  },
 
-
-
-
+  "custom/waybar": {
+    "format": "🔁 Refresh Waybar",
+    "on-click": "~/.config/waybar/scripts/regen-waybar.sh"
+  }
 }
