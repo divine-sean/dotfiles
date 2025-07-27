@@ -45,7 +45,7 @@
   },
 
   "custom/waybar": {
-    "format": "🔁 Refresh Waybar",
+    "format": " Refresh Waybar",
     "on-click": "~/.config/waybar/scripts/regen-waybar.sh"
   }
 }
